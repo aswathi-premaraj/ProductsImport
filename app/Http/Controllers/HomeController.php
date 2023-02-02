@@ -21,9 +21,13 @@ class HomeController extends Controller
        return view('products_upload');
     }
     public function productsImport(Request $request) 
-    {
+    {   try{
         Excel::import(new ProductsImport, $request->file('file')->store('temp'));
         return redirect()->back()->with('success', 'Products Imported Successfully');
+        }catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Something went wrong');
+        }
+        
 
     }
 }

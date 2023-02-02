@@ -15,7 +15,7 @@ class ProductsImport implements ToModel,WithHeadingRow
     * @return \Illuminate\Database\Eloquent\Model|null
     */
     public function model(array $row)
-    {
+    { 
         return new Products([
                 "name" => (isset($row['product_name'])) ? $row['product_name'] : null,
                 "price" => (isset($row['price'])) ? $row['price'] : null,
