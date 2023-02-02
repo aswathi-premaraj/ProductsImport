@@ -12,7 +12,7 @@
                     @csrf
                     <div class="form-group mb-4" style="max-width: 500px; margin: 0 auto;">
                         <div class="custom-file text-left">
-                            <input type="file" name="file" class="" id="customFile">
+                            <input type="file" name="file" class="" id="customFile" accept=".csv">
                             <label class="custom-file-label" for="customFile">Choose file</label>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
         <p class="lead">Your viewing the home page. Please login to view the restricted data.</p>
         @endguest
     </div>
-
+    @auth
 @if(count($products)>0)
     <div class="bg-light p-5 rounded">
     <table class="table table-sm">
@@ -56,6 +56,7 @@
 </table>
 </div>
 @endif
+@endauth
 @endsection
 @section('script')
 <script>
